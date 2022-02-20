@@ -19,7 +19,7 @@
                             <div class="text-center">
                                 <h1 class="h2 mb-4 fw-bold">Sign In</h1>
                                 <img class="mb-4" src="https://getbootstrap.com/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-                                <h1 class="h3 mb-3 fw-normal">ระบบจัดการทรัพย์สิน</h1>
+                                <h1 class="h3 mb-3 fw-normal">ระบบจัดการหนังสือห้องสมุด</h1>
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
