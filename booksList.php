@@ -54,61 +54,21 @@
             include("./layout/sidebar.php");
             ?>
 
-            <div class="col-md-10 px-4">
-                <div class="row justify-content-center">
-                    <div class="col-md-3 py-3">
-                        <div class="card border-primary border-2 shadow mb-3">
-                            <div class="card-body">
-                                <div class="row">
-                                    <h5 class="card-title">หนังสือรวม</h5>
-                                    <p class="card-text h3 fw-nomel">12345</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 py-3">
-                        <div class="card border-danger border-2 shadow mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title">ถูกยืม</h5>
-                                <p class="card-text h3 fw-nomel">13</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 py-3">
-                        <div class="card border-info border-2 shadow mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title">ชำรุด/สูญหาย</h5>
-                                <p class="card-text h3 fw-nomel">10</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 py-3">
-                        <div class="card border-success border-2 shadow mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title">สมาชิก</h5>
-                                <p class="card-text h3 fw-nomel">3</p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
+            <div class="col-md-10 px-4 my-4">
                 <div class="card shadow p-2">
                     <div class="card-body">
-                        <h3 class="float-start me-2">รายการหนังสือทั้งหมด</h3>
-                        <button type="button" class="btn btn-sm btn-primary mb-3">Export Excel</button>
+                        <h3 class="float-start me-2">ข้อมูลหนังสือ</h3>
+                        <a href="./insertbook.php" class="btn btn-sm btn-primary mb-3">เพิ่มหนังสือ</a>
 
                         <table class="table table-striped text-nowrap" id="myTable">
                             <thead class="table-primary">
                                 <tr>
                                     <th scope="col">ID</th>
-                                    <th scope="col">ชื่อข้อมูลหนังสือ</th>
+                                    <th scope="col">ชื่อหนังสือ</th>
                                     <th scope="col">ปีที่ซื้อ</th>
                                     <th scope="col">ราคา (บาท)</th>
                                     <th scope="col">สถานะ</th>
+                                    <th scope="col"></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -118,6 +78,11 @@
                                     <td>2563</td>
                                     <td>250.00</td>
                                     <td>ปกติ/ว่าง</td>
+                                    <td class="col-2 text-end">
+                                        <button type="button" class="btn btn-sm btn-info text-white">ทำรายการเบิก</button>
+                                        <button type="button" class="btn btn-sm btn-warning text-white">แก้ไข</button>
+                                        <button type="button" class="btn btn-sm btn-danger">ลบ</button>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
