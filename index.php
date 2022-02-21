@@ -14,7 +14,7 @@
 
 
     <div class="container">
-        <div class="row justify-content-center align-items-center" style="height: 100vh;">
+        <div class="row justify-content-center align-items-center" style="height: 80vh;">
 
             <div class="col-md-6">
                 <div class="card p-4 my-5">
