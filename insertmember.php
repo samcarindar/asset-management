@@ -57,36 +57,36 @@
             <div class="col-md-10 px-4 my-4">
                 <div class="card shadow p-2">
                     <div class="card-body">
-                        <h3 class="float-start me-2">ข้อมูลหนังสือ</h3>
-                        <a href="./insertbook.php" class="btn btn-sm btn-primary mb-3">เพิ่มหนังสือ</a>
+                        <h3 class="mb-4">ข้อมูลสมาชิก</h3>
 
-                        <table class="table table-striped text-nowrap" id="myTable">
-                            <thead class="table-primary">
-                                <tr>
-                                    <th scope="col">ID</th>
-                                    <th scope="col">เลขที่หนังสือ</th>
-                                    <th scope="col">ชื่อหนังสือ</th>
-                                    <th scope="col">ประเภทหนังสือ</th>
-                                    <th scope="col">ราคา (บาท)</th>
-                                    <th scope="col">สถานะ</th>
-                                    <th scope="col"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>495568</td>
-                                    <td>หนังสือภาษาไทย</td>
-                                    <td>ภาษาไทย</td>
-                                    <td>250.00</td>
-                                    <td>ปกติ/ว่าง</td>
-                                    <td class="col-2 text-end">
-                                        <a href="./updatebook.php" class="btn btn-sm btn-warning text-white">แก้ไข</a>
-                                        <button type="button" class="btn btn-sm btn-danger">ลบ</button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <form action="./memberList.php" method="POST">
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label">ชื่อ - นามสกุล</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label">เลขบัตรประจำตัวประชาชน</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label">ที่อยู่</label>
+                                <textarea class="form-control" rows="4"></textarea>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label">เบอร์โทรศัพท์</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label">Username</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label">Password</label>
+                                <input type="password" class="form-control">
+                            </div>
+                            <a href="./memberList.php" class="btn btn-secondary">ยกลิก</a>
+                            <button type="submit" class="btn btn-primary">บันทึก</button>
+                        </form>
                     </div>
                 </div>
 

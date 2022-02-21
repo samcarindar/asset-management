@@ -58,13 +58,15 @@
                 <div class="card shadow p-2">
                     <div class="card-body">
                         <h3 class="float-start me-2">ข้อมูลสมาชิก</h3>
-                        <button type="button" class="btn btn-sm btn-primary mb-3">เพิ่มสมาชิก</button>
+                        <a href="./insertmember.php" class="btn btn-sm btn-primary mb-3">เพิ่มสมาชิก</a>
 
                         <table class="table table-striped text-nowrap" id="myTable">
                             <thead class="table-primary">
                                 <tr>
                                     <th scope="col">ลำดับ</th>
+                                    <th scope="col">เลขบัตรประชาชน</th>
                                     <th scope="col">ชื่อ - นามสกุล</th>
+                                    <th scope="col">เบอร์โทรศัพท์</th>
                                     <th scope="col">Username</th>
                                     <th scope="col"></th>
                                 </tr>
@@ -72,11 +74,13 @@
                             <tbody>
                                 <tr>
                                     <td>1</td>
+                                    <td>1234567891235</td>
                                     <td>นายปัญญา นามสมมติ</td>
+                                    <td>0812345678</td>
                                     <td>admin</td>
                                     <td class="col-2 text-end">
-                                        <button type="button" class="btn btn-sm btn-info text-white">รีเซ็ต Password</button>
-                                        <button type="button" class="btn btn-sm btn-warning text-white">แก้ไข</button>
+                                        <a href="./resetpassmember.php" class="btn btn-sm btn-info text-white">รีเซ็ต Password</a>
+                                        <a href="./updatemember.php" class="btn btn-sm btn-warning text-white">แก้ไข</a>
                                         <button type="button" class="btn btn-sm btn-danger">ลบ</button>
                                     </td>
                                 </tr>
