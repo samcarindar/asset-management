@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!doctype html>
 <html lang="en">
 
@@ -53,7 +56,6 @@
             <?php
             include("./layout/sidebar.php");
             include "connect.php";
-            CheckLogin();
             ?>
 
             <div class="col-md-10 px-4">

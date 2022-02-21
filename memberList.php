@@ -54,7 +54,6 @@
             include("./layout/sidebar.php");
             include_once 'connect.php';
             $result = mysqli_query($conn, "SELECT * FROM member");
-            CheckLogin();
             ?>
 
             <div class="col-md-10 px-4 my-4">

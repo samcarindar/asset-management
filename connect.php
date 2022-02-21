@@ -12,11 +12,11 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-function CheckLogin(){
-  if(!isset($_SESSION["status"])){
-      header("location: index.php");
-      exit;
-  }
-}
+// function CheckLogin(){
+//   if(!isset($_SESSION["status"])){
+//       header("location: index.php");
+//       exit;
+//   }
+// }
 // echo "Connected successfully";
 ?>
