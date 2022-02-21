@@ -19,22 +19,22 @@
             <div class="col-md-6">
                 <div class="card p-4 my-5">
                     <div class="card-body">
-                        <form action="./dashboard.php" method="POST">
+                        <form action="check_login.php" method="POST">
                             <div class="text-center">
                                 <h1 class="h2 mb-4 fw-bold">Sign In</h1>
                                 <img class="mb-4" src="https://getbootstrap.com/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
                                 <h1 class="h3 mb-3 fw-normal">ระบบจัดการหนังสือห้องสมุด</h1>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                                <input type="text" class="form-control" id="floatingInput" name="username" placeholder="name@example.com">
                                 <label for="floatingInput">Username</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                                <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
                                 <label for="floatingPassword">Password</label>
                             </div>
                             <div class="text-center mt-4">
-                                <button class="btn btn-primary px-5" type="submit">Sign in</button>
+                                <button class="btn btn-primary px-5" name="login" type="submit">Sign in</button>
                             </div>
                         </form>
                     </div>
