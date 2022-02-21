@@ -1,3 +1,15 @@
+<?php
+include("./connect.php");
+session_start();
+
+if (!isset($_SESSION['status'])) {
+    echo "<script type='text/javascript'>";
+    echo "alert('ยังไม่ได้เข้าสู่ระบบ');";
+    echo "window.location = './index.php'; ";
+    echo "</script>";
+}
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -52,7 +64,6 @@
         <div class="row">
             <?php
             include("./layout/sidebar.php");
-            include "connect.php";
             ?>
 
             <div class="col-md-10 px-4">

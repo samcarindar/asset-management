@@ -1,3 +1,15 @@
+<?php
+include("./connect.php");
+session_start();
+
+if (!isset($_SESSION['status'])) {
+    echo "<script type='text/javascript'>";
+    echo "alert('ยังไม่ได้เข้าสู่ระบบ');";
+    echo "window.location = './index.php'; ";
+    echo "</script>";
+}
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -52,7 +64,6 @@
         <div class="row">
             <?php
             include("./layout/sidebar.php");
-            include_once 'connect.php';
             $result = mysqli_query($conn, "SELECT * FROM member");
             ?>
 
@@ -74,30 +85,33 @@
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
-                            <?php
-                            if (mysqli_num_rows($result) > 0) {
-                                $i = 0;
-                                while ($row = mysqli_fetch_array($result)) {
-                            ?>
-                                    <tbody>
+
+
+                            <tbody>
+                                <?php
+                                if (mysqli_num_rows($result) > 0) {
+                                    $i = 0;
+                                    while ($row = mysqli_fetch_array($result)) {
+                                ?>
                                         <tr>
                                             <td><?php echo $row["m_id"] ?></td>
                                             <td><?php echo $row["m_card_id"] ?></td>
                                             <td><?php echo $row["m_name"] ?></td>
                                             <td><?php echo $row["phone"] ?></td>
                                             <td><?php echo $row["username"] ?></td>
-                                            <td><span class="badge bg-success"><?php echo $row["status"] ? 'Admin' : 'User'; ?></span></td>
+                                            <td><?php echo $row["status"] === 0 ? 'Admin' : 'User'; ?></td>
                                             <td class="col-2 text-end">
                                                 <a href="./resetpassmember.php" class="btn btn-sm btn-info text-white">รีเซ็ต Password</a>
                                                 <a href="./updatemember.php" class="btn btn-sm btn-warning text-white">แก้ไข</a>
                                                 <button type="button" class="btn btn-sm btn-danger">ลบ</button>
                                             </td>
                                         </tr>
-                                    </tbody>
-                            <?php
+                                <?php
+                                    }
                                 }
-                            }
-                            ?>
+                                ?>
+                            </tbody>
+
                         </table>
                     </div>
                 </div>
