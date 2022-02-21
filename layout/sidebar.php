@@ -1,23 +1,23 @@
 <div class="col-md-2 text-white bg-dark" style="height: 100vh;">
-    <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+    <a href="../dashboards/dashboard.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
         <span class="fs-4">Dashboard</span>
     </a>
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
-            <a href="./dashboard.php" class="nav-link text-white" aria-current="page">
+            <a href="../dashboards/dashboard.php" class="nav-link text-white" aria-current="page">
                 <i class="fa fa-home me-1" style="font-size:18px"></i>
                 หน้าหลัก
             </a>
         </li>
         <li>
-            <a href="./booksList.php" class="nav-link text-white">
+            <a href="../books/booksList.php" class="nav-link text-white">
                 <i class="fa fa-th-list me-1" style="font-size:18px"></i>
                 จัดการข้อมูลหนังสือ
             </a>
         </li>
         <li>
-            <a href="./memberList.php" class="nav-link text-white">
+            <a href="../members/memberList.php" class="nav-link text-white">
                 <i class="fa fa-users me-1" style="font-size:18px"></i>
                 จัดการข้อมูลสมาชิก
             </a>

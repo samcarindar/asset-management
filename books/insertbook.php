@@ -1,9 +1,21 @@
+<?php
+include("../config/connect.php");
+session_start();
+
+if (!isset($_SESSION['status'])) {
+    echo "<script type='text/javascript'>";
+    echo "alert('ยังไม่ได้เข้าสู่ระบบ');";
+    echo "window.location = '../index.php'; ";
+    echo "</script>";
+}
+?>
+
 <!doctype html>
 <html lang="en">
 
 <head>
     <?php
-    include("./layout/header.php");
+    include("../layout/header.php");
     ?>
 
     <style>
@@ -51,7 +63,7 @@
     <div class="container-fluid" style="background-color: #f2f2f2;">
         <div class="row">
             <?php
-            include("./layout/sidebar.php");
+            include("../layout/sidebar.php");
             ?>
 
             <div class="col-md-10 px-4 my-4">
@@ -107,7 +119,7 @@
     </script>
 
     <?php
-    include("./layout/script.php");
+    include("../layout/script.php");
     ?>
 </body>
 

@@ -6,13 +6,12 @@ if (isset($_POST['login'])) {
   $username = $_POST["username"];
   $password = trim($_POST['password']);
   // extract($_POST);
-  include_once 'connect.php';
+  include_once './config/connect.php';
   $sql = "SELECT * FROM member WHERE username = '" . mysqli_real_escape_string($conn, $username) . "' AND password ='" . mysqli_real_escape_string($conn, $password) . "' ";
   $objQuery = mysqli_query($conn, $sql);
   $objResult = mysqli_fetch_array($objQuery, MYSQLI_ASSOC);
 
   if (!$objResult) {
-
     echo "<script>
       $(document).ready(function() {
         Swal.fire({
@@ -22,7 +21,7 @@ if (isset($_POST['login'])) {
           showConfirmButton: false,
           timer: 1500
         }).then((result) => {
-          window.location = 'index.php';
+          window.location = './index.php';
         });
       });
     </script>";
@@ -57,7 +56,7 @@ if (isset($_POST['login'])) {
     //   });
     // </script>";
 
-    header("location:./dashboard.php");
+    header("location:./dashboards/dashboard.php");
   }
   mysqli_close($conn);
 }

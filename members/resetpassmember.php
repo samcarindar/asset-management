@@ -1,9 +1,21 @@
+<?php
+include("../config/connect.php");
+session_start();
+
+if (!isset($_SESSION['status'])) {
+    echo "<script type='text/javascript'>";
+    echo "alert('ยังไม่ได้เข้าสู่ระบบ');";
+    echo "window.location = '../index.php'; ";
+    echo "</script>";
+}
+?>
+
 <!doctype html>
 <html lang="en">
 
 <head>
     <?php
-    include("./layout/header.php");
+    include("../layout/header.php");
     ?>
 
     <style>
@@ -51,7 +63,7 @@
     <div class="container-fluid" style="background-color: #f2f2f2;">
         <div class="row">
             <?php
-            include("./layout/sidebar.php");
+            include("../layout/sidebar.php");
             ?>
 
             <div class="col-md-10 px-4 my-4">
@@ -61,27 +73,11 @@
 
                         <form action="./memberList.php" method="POST">
                             <div class="col-md-4 mb-3">
-                                <label class="form-label">ชื่อ - นามสกุล</label>
-                                <input type="text" class="form-control">
+                                <label class="form-label">New Password</label>
+                                <input type="password" class="form-control">
                             </div>
                             <div class="col-md-4 mb-3">
-                                <label class="form-label">เลขบัตรประจำตัวประชาชน</label>
-                                <input type="text" class="form-control">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <label class="form-label">ที่อยู่</label>
-                                <textarea class="form-control" rows="4"></textarea>
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <label class="form-label">เบอร์โทรศัพท์</label>
-                                <input type="text" class="form-control">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <label class="form-label">Username</label>
-                                <input type="text" class="form-control">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <label class="form-label">Password</label>
+                                <label class="form-label">Confirm Password</label>
                                 <input type="password" class="form-control">
                             </div>
                             <a href="./memberList.php" class="btn btn-secondary">ยกลิก</a>
@@ -101,7 +97,7 @@
     </script>
 
     <?php
-    include("./layout/script.php");
+    include("../layout/script.php");
     ?>
 </body>
 
