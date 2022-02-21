@@ -12,7 +12,7 @@ if (isset($_POST['save'])) {
     $sql = "INSERT INTO member (m_card_id,m_name,username,password,address,phone)
 	 VALUES ('$cardId','$name','$username','$password','$address','$phone')";
     if (mysqli_query($conn, $sql)) {
-        echo "New record created successfully !";
+        // echo "New record created successfully !";
         echo "<script>Swal.fire({
             position: 'center',
             icon: 'success',

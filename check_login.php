@@ -1,3 +1,4 @@
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <?php
 session_start();
 if(isset($_POST['login'])) {
@@ -18,11 +19,29 @@ if(isset($_POST['login'])) {
         $_SESSION["name"]=$row['m_name'];
         $_SESSION["address"]=$row['address']; 
         $_SESSION["phone"]=$row['phone']; 
-        header("Location: dashboard.php"); 
+        echo "<script>Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'เข้าสู่ระบบสำเร็จ !!',
+            showConfirmButton: false,
+            timer: 1500
+          }).then((result) => {
+            window.location = 'dashboard.php';
+          });
+          </script>";
     }
     else
     {
-        echo "Invalid Email ID/Password";
+        echo "<script>Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Username หรือ Password ผิด !!',
+            showConfirmButton: false,
+            timer: 1500
+          }).then((result) => {
+            window.location = 'index.php';
+          });
+          </script>";
     }
 }
 

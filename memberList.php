@@ -4,6 +4,8 @@
 <head>
     <?php
     include("./layout/header.php");
+    include_once 'connect.php';
+    $result = mysqli_query($conn, "SELECT * FROM member");
     ?>
 
     <style>
@@ -71,20 +73,29 @@
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>1234567891235</td>
-                                    <td>นายปัญญา นามสมมติ</td>
-                                    <td>0812345678</td>
-                                    <td>admin</td>
-                                    <td class="col-2 text-end">
-                                        <a href="./resetpassmember.php" class="btn btn-sm btn-info text-white">รีเซ็ต Password</a>
-                                        <a href="./updatemember.php" class="btn btn-sm btn-warning text-white">แก้ไข</a>
-                                        <button type="button" class="btn btn-sm btn-danger">ลบ</button>
-                                    </td>
-                                </tr>
-                            </tbody>
+                            <?php
+                            if (mysqli_num_rows($result) > 0) {
+                                $i = 0;
+                                while ($row = mysqli_fetch_array($result)) {
+                            ?>
+                                    <tbody>
+                                        <tr>
+                                            <td><?php echo $row["m_id"] ?></td>
+                                            <td><?php echo $row["m_card_id"] ?></td>
+                                            <td><?php echo $row["m_name"] ?></td>
+                                            <td><?php echo $row["phone"] ?></td>
+                                            <td><?php echo $row["username"] ?></td>
+                                            <td class="col-2 text-end">
+                                                <a href="./resetpassmember.php" class="btn btn-sm btn-info text-white">รีเซ็ต Password</a>
+                                                <a href="./updatemember.php" class="btn btn-sm btn-warning text-white">แก้ไข</a>
+                                                <button type="button" class="btn btn-sm btn-danger">ลบ</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                            <?php
+                                }
+                            }
+                            ?>
                         </table>
                     </div>
                 </div>

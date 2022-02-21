@@ -26,11 +26,11 @@
                                 <h1 class="h3 mb-3 fw-normal">ระบบจัดการหนังสือห้องสมุด</h1>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="floatingInput" name="m_name" placeholder="ชื่อ - นามสกุล">
+                                <input type="text" class="form-control" id="floatingInput" name="m_name" placeholder="ชื่อ - นามสกุล" required>
                                 <label for="floatingInput">ชื่อ - นามสกุล</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="floatingInput" name="m_card_id" placeholder="เลขบัตรประจำตัวประชาชน">
+                                <input type="text" class="form-control" id="floatingInput" name="m_card_id" maxlength="13" placeholder="เลขบัตรประจำตัวประชาชน" required>
                                 <label for="floatingInput">เลขบัตรประจำตัวประชาชน</label>
                             </div>
                             <div class="form-floating mb-3">
@@ -42,11 +42,11 @@
                                 <label for="floatingInput">เบอร์โทรศัพท์</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="floatingInput" name="username" placeholder="Username">
+                                <input type="text" class="form-control" id="floatingInput" name="username" placeholder="Username" required>
                                 <label for="floatingInput">Username</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
+                                <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password" required>
                                 <label for="floatingPassword">Password</label>
                             </div>
                             <div class="text-center mt-4">
