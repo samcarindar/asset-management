@@ -86,7 +86,7 @@
                                             <td><?php echo $row["m_name"] ?></td>
                                             <td><?php echo $row["phone"] ?></td>
                                             <td><?php echo $row["username"] ?></td>
-                                            <td><?php echo $row["status"] === 0 ? 'Admin': 'User'; ?></td>
+                                            <td><span class="badge bg-success"><?php echo $row["status"] ? 'Admin' : 'User'; ?></span></td>
                                             <td class="col-2 text-end">
                                                 <a href="./resetpassmember.php" class="btn btn-sm btn-info text-white">รีเซ็ต Password</a>
                                                 <a href="./updatemember.php" class="btn btn-sm btn-warning text-white">แก้ไข</a>
