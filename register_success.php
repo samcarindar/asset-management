@@ -2,18 +2,21 @@
 <?php
 include_once 'connect.php';
 if (isset($_POST['save'])) {
-    $name = $_POST['m_name'];
-    $cardId = $_POST['m_card_id'];
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $address = $_POST['address'];
-    $phone = $_POST['phone'];
+  $name = $_POST['m_name'];
+  $cardId = $_POST['m_card_id'];
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+  $address = $_POST['address'];
+  $phone = $_POST['phone'];
 
-    $sql = "INSERT INTO member (m_card_id,m_name,username,password,address,phone)
+  $sql = "INSERT INTO member (m_card_id,m_name,username,password,address,phone)
 	 VALUES ('$cardId','$name','$username','$password','$address','$phone')";
-    if (mysqli_query($conn, $sql)) {
-        // echo "New record created successfully !";
-        echo "<script>Swal.fire({
+
+  $_SESSION["name"] = $name;
+
+  if (mysqli_query($conn, $sql)) {
+    // echo "New record created successfully !";
+    echo "<script>Swal.fire({
             position: 'center',
             icon: 'success',
             title: 'สมัครสมาชิกสำเร็จ !!',
@@ -23,10 +26,10 @@ if (isset($_POST['save'])) {
             window.location = 'index.php';
           });
           </script>";
-    } else {
-        echo "Error: " . $sql . "
+  } else {
+    echo "Error: " . $sql . "
 " . mysqli_error($conn);
-    }
-    mysqli_close($conn);
+  }
+  mysqli_close($conn);
 }
 ?>
