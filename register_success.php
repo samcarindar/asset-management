@@ -12,8 +12,6 @@ if (isset($_POST['save'])) {
   $sql = "INSERT INTO member (m_card_id,m_name,username,password,address,phone)
 	 VALUES ('$cardId','$name','$username','$password','$address','$phone')";
 
-  $_SESSION["name"] = $name;
-
   if (mysqli_query($conn, $sql)) {
     // echo "New record created successfully !";
     echo "<script>Swal.fire({
