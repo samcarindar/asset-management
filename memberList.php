@@ -4,8 +4,6 @@
 <head>
     <?php
     include("./layout/header.php");
-    include_once 'connect.php';
-    $result = mysqli_query($conn, "SELECT * FROM member");
     ?>
 
     <style>
@@ -54,6 +52,9 @@
         <div class="row">
             <?php
             include("./layout/sidebar.php");
+            include_once 'connect.php';
+            $result = mysqli_query($conn, "SELECT * FROM member");
+            CheckLogin();
             ?>
 
             <div class="col-md-10 px-4 my-4">
@@ -70,6 +71,7 @@
                                     <th scope="col">ชื่อ - นามสกุล</th>
                                     <th scope="col">เบอร์โทรศัพท์</th>
                                     <th scope="col">Username</th>
+                                    <th scope="col">สถานะ</th>
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
@@ -85,6 +87,7 @@
                                             <td><?php echo $row["m_name"] ?></td>
                                             <td><?php echo $row["phone"] ?></td>
                                             <td><?php echo $row["username"] ?></td>
+                                            <td><?php echo $row["status"] === 0 ? 'Admin': 'User'; ?></td>
                                             <td class="col-2 text-end">
                                                 <a href="./resetpassmember.php" class="btn btn-sm btn-info text-white">รีเซ็ต Password</a>
                                                 <a href="./updatemember.php" class="btn btn-sm btn-warning text-white">แก้ไข</a>

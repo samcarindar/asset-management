@@ -9,8 +9,8 @@ if (isset($_POST['save'])) {
   $address = $_POST['address'];
   $phone = $_POST['phone'];
 
-  $sql = "INSERT INTO member (m_card_id,m_name,username,password,address,phone)
-	 VALUES ('$cardId','$name','$username','$password','$address','$phone')";
+  $sql = "INSERT INTO member (m_card_id,m_name,username,password,address,phone,status)
+	 VALUES ('$cardId','$name','$username','$password','$address','$phone',0)";
 
   if (mysqli_query($conn, $sql)) {
     // echo "New record created successfully !";

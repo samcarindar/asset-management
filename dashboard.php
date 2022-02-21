@@ -52,6 +52,8 @@
         <div class="row">
             <?php
             include("./layout/sidebar.php");
+            include "connect.php";
+            CheckLogin();
             ?>
 
             <div class="col-md-10 px-4">

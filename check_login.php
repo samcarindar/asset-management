@@ -5,9 +5,8 @@ if(isset($_POST['login'])) {
     $username = $_POST["username"];
     $password = trim($_POST['password']);
     // extract($_POST);
-    include 'connect.php';
+    include_once 'connect.php';
     $sql = "SELECT * FROM member WHERE username = '" . mysqli_real_escape_string($conn, $username) . "' AND password ='" . mysqli_real_escape_string($conn, $password) . "' ";
-    echo $sql;
       $rs = mysqli_query($conn, $sql);
       $num = mysqli_num_rows($rs);
 
@@ -19,6 +18,14 @@ if(isset($_POST['login'])) {
         $_SESSION["name"]=$row['m_name'];
         $_SESSION["address"]=$row['address']; 
         $_SESSION["phone"]=$row['phone']; 
+        $_SESSION["status"]=$row['status']; 
+        if ($row["status"] == 0) {
+            $_SESSION["status"] = 'User';
+          } else if ($row["status"] == 1) {
+            $_SESSION["status"] = 'Admin';
+          } else {
+            session_destroy();
+          }
         echo "<script>Swal.fire({
             position: 'center',
             icon: 'success',
