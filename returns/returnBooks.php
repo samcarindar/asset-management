@@ -95,7 +95,7 @@ if (!isset($_SESSION['status'])) {
                                 <div class="row">
                                     <div class="col-md-3">
                                         <a href="./returnsList.php" class="btn btn-secondary">ยกลิก</a>
-                                        <button type="submit" class="btn btn-primary">บันทึก</button>
+                                        <button type="submit" name="save" class="btn btn-primary">บันทึก</button>
                                     </div>
                                 </div>
                             </form>
