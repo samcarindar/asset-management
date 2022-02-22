@@ -25,22 +25,27 @@ if (!isset($_SESSION['status'])) {
         <div class="row">
             <?php
             include("../layout/sidebar.php");
-            $result = mysqli_query($conn, "SELECT * FROM member WHERE status='0' ORDER BY m_name");
+            $result = mysqli_query($conn, "
+            SELECT booking.id,member.m_name, book.book_id, book.b_name, booking.start_date, booking.end_date, book.price, booking.status
+            FROM booking LEFT JOIN member ON booking.m_id = member.m_id
+                         LEFT JOIN book ON booking.book_id = book.book_id;
+            ");
             ?>
 
             <div class="col-md-10 px-4 my-4">
                 <div class="card shadow p-2">
                     <div class="card-body">
-                        <h3 class="float-start me-2">ข้อมูลสมาชิก</h3>
+                        <h3 class="float-start me-2">ข้อมูลการยืมหนังสือ</h3>
 
                         <table class="table table-striped text-nowrap" id="myTable">
                             <thead class="table-primary">
                                 <tr>
                                     <th scope="col">ลำดับ</th>
-                                    <th scope="col">เลขบัตรประชาชน</th>
-                                    <th scope="col">ชื่อ - นามสกุล</th>
-                                    <th scope="col">เบอร์โทรศัพท์</th>
-                                    <th scope="col">Username</th>
+                                    <th scope="col">ผู้ยืม</th>
+                                    <th scope="col">เลขที่หนังสือ</th>
+                                    <th scope="col">ชื่อหนังสือ</th>
+                                    <th scope="col">วันที่ยืม</th>
+                                    <th scope="col">กำหนดส่ง</th>
                                     <th scope="col">สถานะ</th>
                                     <th scope="col"></th>
                                 </tr>
@@ -53,21 +58,25 @@ if (!isset($_SESSION['status'])) {
                                 ?>
                                         <tr>
                                             <td><?php echo $i++ ?></td>
-                                            <td><?php echo $row["m_card_id"] ?></td>
                                             <td><?php echo $row["m_name"] ?></td>
-                                            <td><?php echo $row["phone"] ?></td>
-                                            <td><?php echo $row["username"] ?></td>
+                                            <td><?php echo $row["book_id"] ?></td>
+                                            <td><?php echo $row["b_name"] ?></td>
+                                            <td><?php echo date_format(date_create($row["start_date"]), "d-m-Y") ?></td>
+                                            <td><?php echo date_format(date_create($row["end_date"]), "d-m-Y") ?></td>
                                             <td>
                                                 <?php
                                                 if ($row["status"] == 0) {
-                                                    echo "User";
+                                                    echo '<p class="mb-0 text-danger">ยังไม่ส่งคืน</p>';
                                                 } else {
-                                                    echo "Admin";
+                                                    echo '<p class="mb-0 text-success">ส่งคืนแล้ว</p>';
                                                 }
                                                 ?>
                                             </td>
                                             <td class="col-2 text-end">
-                                                <a href="./selectBooks.php?id=<?php echo $row['m_id']; ?>" class="btn btn-sm btn-success text-white">เลือก</a>
+                                                <?php
+                                                if ($row["status"] == 0) { ?>
+                                                    <a href="./selectBooks.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-primary text-white px-4">ส่งคืน</a>
+                                                <?php } ?>
                                             </td>
                                         </tr>
                                 <?php
