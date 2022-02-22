@@ -25,7 +25,8 @@ if (!isset($_SESSION['status'])) {
         <div class="row">
             <?php
             include("../layout/sidebar.php");
-            $rst_num = mysqli_query($conn, "SELECT * FROM book");
+            $rst_numbook = mysqli_query($conn, "SELECT * FROM book");
+            $rst_num = mysqli_query($conn, "SELECT * FROM book WHERE status='ปกติ/ว่าง'");
             $rst_num1 = mysqli_query($conn, "SELECT * FROM book WHERE status='ยืม/ใช้งาน'");
             $rst_num2 = mysqli_query($conn, "SELECT * FROM book WHERE status='ชำรุด' OR status='สูญหาย'");
             $rst_num3 = mysqli_query($conn, "SELECT * FROM member");
@@ -43,7 +44,7 @@ if (!isset($_SESSION['status'])) {
                         <div class="card border-primary border-2 shadow mb-3">
                             <div class="card-body">
                                 <div class="row">
-                                    <h5 class="card-title">หนังสือรวม</h5>
+                                    <h5 class="card-title">ปกติ/ว่าง</h5>
                                     <p class="card-text h3 fw-nomel"><?php echo mysqli_num_rows($rst_num); ?></p>
                                 </div>
                             </div>
@@ -81,7 +82,7 @@ if (!isset($_SESSION['status'])) {
 
                 <div class="card shadow p-2">
                     <div class="card-body">
-                        <h3 class="float-start me-2">รายการหนังสือทั้งหมด</h3>
+                        <h3 class="float-start me-2">รายการหนังสือทั้งหมด <?php echo mysqli_num_rows($rst_numbook); ?> รายการ</h3>
                         <!-- <button type="button" class="btn btn-sm btn-primary mb-3">Export Excel</button> -->
 
                         <table class="table table-striped text-nowrap" id="myTable">
