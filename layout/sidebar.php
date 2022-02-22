@@ -11,6 +11,18 @@
             </a>
         </li>
         <li>
+            <a href="../borrow/borrowsList.php" class="nav-link text-white">
+                <i class="fa fa-th-list me-1" style="font-size:18px"></i>
+                ยืมหนังสือ
+            </a>
+        </li>
+        <li>
+            <a href="../returns/returnsList.php" class="nav-link text-white">
+                <i class="fa fa-th-list me-1" style="font-size:18px"></i>
+                รับคืนหนังสือ
+            </a>
+        </li>
+        <li>
             <a href="../books/booksList.php" class="nav-link text-white">
                 <i class="fa fa-th-list me-1" style="font-size:18px"></i>
                 จัดการข้อมูลหนังสือ
