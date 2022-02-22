@@ -35,7 +35,7 @@ if (!isset($_SESSION['status'])) {
             <div class="col-md-10 px-4 my-4">
                 <div class="card shadow p-2">
                     <div class="card-body">
-                        <h3 class="float-start me-2">ข้อมูลการยืมหนังสือ</h3>
+                        <h3 class="float-start me-2">ส่งคืนหนังสือ</h3>
 
                         <table class="table table-striped text-nowrap" id="myTable">
                             <thead class="table-primary">
