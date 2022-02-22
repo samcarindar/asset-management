@@ -45,7 +45,7 @@ if (!isset($_SESSION['status'])) {
                                     <th scope="col">เลขที่หนังสือ</th>
                                     <th scope="col">ชื่อหนังสือ</th>
                                     <th scope="col">วันที่ยืม</th>
-                                    <th scope="col">กำหนดส่งคืน</th>
+                                    <th scope="col">กำหนดส่ง</th>
                                     <th scope="col">สถานะ</th>
                                     <th scope="col"></th>
                                 </tr>
@@ -75,7 +75,7 @@ if (!isset($_SESSION['status'])) {
                                             <td class="col-2 text-end">
                                                 <?php
                                                 if ($row["status"] == 0) { ?>
-                                                    <a href="./selectBooks.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-primary text-white px-4">ส่งคืน</a>
+                                                    <a href="./returnBooks.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-primary text-white px-4">ส่งคืน</a>
                                                 <?php } ?>
                                             </td>
                                         </tr>
