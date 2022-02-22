@@ -6,10 +6,13 @@ include_once '../config/connect.php';
 if (isset($_POST['update'])) {
 
   $id = $_POST['id'];
-  $number = $_POST['number'];
   $name = $_POST['name'];
+  $c_id = $_POST['category_id'];
+  $status = $_POST['status'];
+  $price = $_POST['price'];
+  $number = $_POST['number'];
 
-  $strSQL = " UPDATE category SET c_name='$name', c_number='$number' WHERE c_id='$id'";
+  $strSQL = " UPDATE book SET b_name='$name', c_id='$c_id', status='$status', price='$price', book_id='$number' WHERE b_id='$id'";
 
   if ($conn->query($strSQL) == TRUE) {
     echo "<script>
@@ -17,11 +20,11 @@ if (isset($_POST['update'])) {
     Swal.fire({
             position: 'center',
             icon: 'success',
-            title: 'แก้ไขหมวดหมู่สำเร็จ',
+            title: 'แก้ไขข้อมูลหนังสือสำเร็จ',
             showConfirmButton: false,
             timer: 1500
           }).then((result) => {
-            window.location = './categorysList.php';
+            window.location = './booksList.php';
           });
         });
     </script>";
@@ -31,11 +34,11 @@ if (isset($_POST['update'])) {
       Swal.fire({
         position: 'center',
         icon: 'error',
-        title: 'แก้ไขหมวดหมู่ไม่สำเร็จ',
+        title: 'แก้ไขข้อมูลหนังสือไม่สำเร็จ',
         showConfirmButton: false,
         timer: 1500
       }).then((result) => {
-        window.location = './categorysList.php';
+        window.location = './booksList.php';
       });
     });
     </script>";

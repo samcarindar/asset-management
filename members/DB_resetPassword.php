@@ -3,44 +3,43 @@
 
 <?php
 include_once '../config/connect.php';
-if (isset($_POST['update'])) {
+if (isset($_POST['reset'])) {
 
-  $id = $_POST['id'];
-  $number = $_POST['number'];
-  $name = $_POST['name'];
+    $id = $_POST['id'];
+    $new_pass = $_POST['new_pass'];
 
-  $strSQL = " UPDATE category SET c_name='$name', c_number='$number' WHERE c_id='$id'";
+    $strSQL = " UPDATE member SET password='$new_pass' WHERE m_id='$id'";
 
-  if ($conn->query($strSQL) == TRUE) {
-    echo "<script>
+    if ($conn->query($strSQL) == TRUE) {
+        echo "<script>
     $(document).ready(function() {
     Swal.fire({
             position: 'center',
             icon: 'success',
-            title: 'แก้ไขหมวดหมู่สำเร็จ',
+            title: 'รีเซ็ต Password สำเร็จ',
             showConfirmButton: false,
             timer: 1500
           }).then((result) => {
-            window.location = './categorysList.php';
+            window.location = './memberList.php';
           });
         });
     </script>";
-  } else {
-    echo "<script>
+    } else {
+        echo "<script>
     $(document).ready(function() {
       Swal.fire({
         position: 'center',
         icon: 'error',
-        title: 'แก้ไขหมวดหมู่ไม่สำเร็จ',
+        title: 'รีเซ็ต Password ไม่สำเร็จ',
         showConfirmButton: false,
         timer: 1500
       }).then((result) => {
-        window.location = './categorysList.php';
+        window.location = './memberList.php';
       });
     });
     </script>";
-  }
+    }
 
-  mysqli_close($conn);
+    mysqli_close($conn);
 }
 ?>

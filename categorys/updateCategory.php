@@ -49,7 +49,7 @@ if (!isset($_SESSION['status'])) {
                                     <input type="text" class="form-control" name="name" value="<?php echo $row['c_name'] ?>">
                                 </div>
                                 <a href=" ./categorysList.php" class="btn btn-secondary">ยกลิก</a>
-                                <button type="submit" name="insert" class="btn btn-primary">บันทึก</button>
+                                <button type="submit" name="update" class="btn btn-primary">บันทึก</button>
                             </form>
                         </div>
                     </div>

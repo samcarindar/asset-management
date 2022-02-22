@@ -6,10 +6,13 @@ include_once '../config/connect.php';
 if (isset($_POST['update'])) {
 
   $id = $_POST['id'];
-  $number = $_POST['number'];
   $name = $_POST['name'];
+  $card_id = $_POST['card_id'];
+  $address = $_POST['address'];
+  $phone = $_POST['phone'];
+  $username = $_POST['username'];
 
-  $strSQL = " UPDATE category SET c_name='$name', c_number='$number' WHERE c_id='$id'";
+  $strSQL = " UPDATE member SET m_card_id='$card_id', m_name='$name', username='$username', address='$address', phone='$phone' WHERE m_id='$id'";
 
   if ($conn->query($strSQL) == TRUE) {
     echo "<script>
@@ -17,11 +20,11 @@ if (isset($_POST['update'])) {
     Swal.fire({
             position: 'center',
             icon: 'success',
-            title: 'แก้ไขหมวดหมู่สำเร็จ',
+            title: 'แก้ไขข้อมูลสมาชิกสำเร็จ',
             showConfirmButton: false,
             timer: 1500
           }).then((result) => {
-            window.location = './categorysList.php';
+            window.location = './memberList.php';
           });
         });
     </script>";
@@ -31,11 +34,11 @@ if (isset($_POST['update'])) {
       Swal.fire({
         position: 'center',
         icon: 'error',
-        title: 'แก้ไขหมวดหมู่ไม่สำเร็จ',
+        title: 'แก้ไขข้อมูลสมาชิกไม่สำเร็จ',
         showConfirmButton: false,
         timer: 1500
       }).then((result) => {
-        window.location = './categorysList.php';
+        window.location = './memberList.php';
       });
     });
     </script>";

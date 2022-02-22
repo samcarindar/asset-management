@@ -32,33 +32,34 @@ if (!isset($_SESSION['status'])) {
                     <div class="card-body">
                         <h3 class="mb-3">ข้อมูลสมาชิก</h3>
 
-                        <form action="./memberList.php" method="POST">
+                        <form action="./DB_insMember.php" method="POST">
                             <div class="col-md-4 mb-3">
                                 <label class="form-label">ชื่อ - นามสกุล</label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" name="name" required>
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label class="form-label">เลขบัตรประจำตัวประชาชน</label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" name="card_id" required>
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label class="form-label">ที่อยู่</label>
-                                <textarea class="form-control" rows="4"></textarea>
+                                <textarea class="form-control" name="address" rows="4"></textarea>
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label class="form-label">เบอร์โทรศัพท์</label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" name="phone">
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label class="form-label">Username</label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" name="username" required>
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label class="form-label">Password</label>
-                                <input type="password" class="form-control">
+                                <input type="password" class="form-control" name="password" required>
                             </div>
+
                             <a href="./memberList.php" class="btn btn-secondary">ยกลิก</a>
-                            <button type="submit" class="btn btn-primary">บันทึก</button>
+                            <button type="submit" name="insert" class="btn btn-primary">บันทึก</button>
                         </form>
                     </div>
                 </div>

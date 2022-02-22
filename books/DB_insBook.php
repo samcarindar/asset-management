@@ -4,10 +4,14 @@
 <?php
 include_once '../config/connect.php';
 if (isset($_POST['insert'])) {
-  $c_name = $_POST['name'];
-  $c_number = $_POST['number'];
+  $status = $_POST['status'];
+  $number = $_POST['number'];
+  $name = $_POST['name'];
+  $c_id = $_POST['category_id'];
+  $price = $_POST['price'];
 
-  $strSQL = "INSERT INTO category (c_name,c_number) VALUES ('$c_name','$c_number')";
+  $strSQL = "INSERT INTO book (b_name, c_id, status, price, book_id) 
+                    VALUES ('$name','$c_id','$status','$price','$number')";
 
   if ($conn->query($strSQL) == TRUE) {
     echo "<script>
@@ -15,11 +19,11 @@ if (isset($_POST['insert'])) {
     Swal.fire({
             position: 'center',
             icon: 'success',
-            title: 'เพิ่มหมวดหมู่สำเร็จ',
+            title: 'เพิ่มข้อมูลหนังสือสำเร็จ',
             showConfirmButton: false,
             timer: 1500
           }).then((result) => {
-            window.location = './categorysList.php';
+            window.location = './booksList.php';
           });
         });
     </script>";
@@ -29,11 +33,11 @@ if (isset($_POST['insert'])) {
           Swal.fire({
             position: 'center',
             icon: 'error',
-            title: 'เพิ่มหมวดหมู่ไม่สำเร็จ',
+            title: 'เพิ่มข้อมูลหนังสือไม่สำเร็จ',
             showConfirmButton: false,
             timer: 1500
           }).then((result) => {
-            window.location = './categorysList.php';
+            window.location = './booksList.php';
           });
         });
         </script>";

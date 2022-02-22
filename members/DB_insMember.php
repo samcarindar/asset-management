@@ -4,10 +4,15 @@
 <?php
 include_once '../config/connect.php';
 if (isset($_POST['insert'])) {
-  $c_name = $_POST['name'];
-  $c_number = $_POST['number'];
+  $name = $_POST['name'];
+  $card_id = $_POST['card_id'];
+  $address = $_POST['address'];
+  $phone = $_POST['phone'];
+  $username = $_POST['username'];
+  $password = $_POST['password'];
 
-  $strSQL = "INSERT INTO category (c_name,c_number) VALUES ('$c_name','$c_number')";
+  $strSQL = "INSERT INTO member (m_card_id, m_name, username, password, address, phone) 
+                    VALUES ('$card_id','$name','$username','$password','$address', '$phone')";
 
   if ($conn->query($strSQL) == TRUE) {
     echo "<script>
@@ -15,11 +20,11 @@ if (isset($_POST['insert'])) {
     Swal.fire({
             position: 'center',
             icon: 'success',
-            title: 'เพิ่มหมวดหมู่สำเร็จ',
+            title: 'เพิ่มสมาชิกสำเร็จ',
             showConfirmButton: false,
             timer: 1500
           }).then((result) => {
-            window.location = './categorysList.php';
+            window.location = './memberList.php';
           });
         });
     </script>";
@@ -29,11 +34,11 @@ if (isset($_POST['insert'])) {
           Swal.fire({
             position: 'center',
             icon: 'error',
-            title: 'เพิ่มหมวดหมู่ไม่สำเร็จ',
+            title: 'เพิ่มสมาชิกไม่สำเร็จ',
             showConfirmButton: false,
             timer: 1500
           }).then((result) => {
-            window.location = './categorysList.php';
+            window.location = './memberList.php';
           });
         });
         </script>";

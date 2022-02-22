@@ -25,14 +25,14 @@ if (!isset($_SESSION['status'])) {
         <div class="row">
             <?php
             include("../layout/sidebar.php");
-            $result = mysqli_query($conn, "SELECT * FROM member");
+            $result = mysqli_query($conn, "SELECT * FROM member ORDER BY m_name");
             ?>
 
             <div class="col-md-10 px-4 my-4">
                 <div class="card shadow p-2">
                     <div class="card-body">
                         <h3 class="float-start me-2">ข้อมูลสมาชิก</h3>
-                        <a href="./insertmember.php" class="btn btn-sm btn-primary mb-3">เพิ่มสมาชิก</a>
+                        <a href="./insertMember.php" class="btn btn-sm btn-primary mb-3">เพิ่มสมาชิก</a>
 
                         <table class="table table-striped text-nowrap" id="myTable">
                             <thead class="table-primary">
@@ -47,7 +47,6 @@ if (!isset($_SESSION['status'])) {
                                 </tr>
                             </thead>
 
-
                             <tbody>
                                 <?php
                                 if (mysqli_num_rows($result) > 0) {
@@ -60,11 +59,19 @@ if (!isset($_SESSION['status'])) {
                                             <td><?php echo $row["m_name"] ?></td>
                                             <td><?php echo $row["phone"] ?></td>
                                             <td><?php echo $row["username"] ?></td>
-                                            <td><?php echo $row["status"] === 0 ? 'Admin' : 'User'; ?></td>
+                                            <td>
+                                                <?php
+                                                if ($row["status"] == 0) {
+                                                    echo "User";
+                                                } else {
+                                                    echo "Admin";
+                                                }
+                                                ?>
+                                            </td>
                                             <td class="col-2 text-end">
-                                                <a href="./resetpassmember.php?id=<?php echo $row['m_id']; ?>" class="btn btn-sm btn-info text-white">รีเซ็ต Password</a>
-                                                <a href="./updatemember.php?id=<?php echo $row['m_id']; ?>" class="btn btn-sm btn-warning text-white">แก้ไข</a>
-                                                <button type="button" class="btn btn-sm btn-danger">ลบ</button>
+                                                <a href="./resetPassmember.php?id=<?php echo $row['m_id']; ?>" class="btn btn-sm btn-info text-white">รีเซ็ต Password</a>
+                                                <a href="./updateMember.php?id=<?php echo $row['m_id']; ?>" class="btn btn-sm btn-warning text-white">แก้ไข</a>
+                                                <a href="./DB_delMember.php?id=<?php echo $row['m_id']; ?>" class="btn btn-sm btn-danger">ลบ</button>
                                             </td>
                                         </tr>
                                 <?php
@@ -72,7 +79,6 @@ if (!isset($_SESSION['status'])) {
                                 }
                                 ?>
                             </tbody>
-
                         </table>
                     </div>
                 </div>

@@ -1,6 +1,7 @@
 <?php
 include("../config/connect.php");
 session_start();
+$id = $_GET['id'];
 
 if (!isset($_SESSION['status'])) {
     echo "<script type='text/javascript'>";
@@ -32,17 +33,19 @@ if (!isset($_SESSION['status'])) {
                     <div class="card-body">
                         <h3 class="mb-3">ข้อมูลสมาชิก</h3>
 
-                        <form action="./memberList.php" method="POST">
+                        <form action="./DB_resetPassword.php" method="POST">
+                            <input type="hidden" class="form-control" name="id" value="<?php echo $id ?>">
+
                             <div class="col-md-4 mb-3">
                                 <label class="form-label">New Password</label>
-                                <input type="password" class="form-control">
+                                <input type="password" class="form-control" name="new_pass" required>
                             </div>
-                            <div class="col-md-4 mb-3">
+                            <!-- <div class="col-md-4 mb-3">
                                 <label class="form-label">Confirm Password</label>
                                 <input type="password" class="form-control">
-                            </div>
+                            </div> -->
                             <a href="./memberList.php" class="btn btn-secondary">ยกลิก</a>
-                            <button type="submit" class="btn btn-primary">บันทึก</button>
+                            <button type="submit" name="reset" class="btn btn-primary">บันทึก</button>
                         </form>
                     </div>
                 </div>

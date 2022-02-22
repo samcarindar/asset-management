@@ -1,6 +1,7 @@
 <?php
 include("../config/connect.php");
 session_start();
+$id = $_GET['id'];
 
 if (!isset($_SESSION['status'])) {
     echo "<script type='text/javascript'>";
@@ -25,41 +26,48 @@ if (!isset($_SESSION['status'])) {
         <div class="row">
             <?php
             include("../layout/sidebar.php");
+            $strSQL = "SELECT * FROM member WHERE m_id = $id";
+            $result = mysqli_query($conn, $strSQL);
+
+            if ($row = mysqli_fetch_array($result)) {
             ?>
+                <div class="col-md-10 px-4 my-4">
+                    <div class="card shadow p-2">
+                        <div class="card-body">
+                            <h3 class="mb-3">ข้อมูลสมาชิก</h3>
 
-            <div class="col-md-10 px-4 my-4">
-                <div class="card shadow p-2">
-                    <div class="card-body">
-                        <h3 class="mb-3">ข้อมูลสมาชิก</h3>
+                            <form action="./DB_updateMember.php" method="POST">
+                                <input type="hidden" class="form-control" name="id" value="<?php echo $id ?>">
 
-                        <form action="./memberList.php" method="POST">
-                            <div class="col-md-4 mb-3">
-                                <label class="form-label">ชื่อ - นามสกุล</label>
-                                <input type="text" class="form-control">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <label class="form-label">เลขบัตรประจำตัวประชาชน</label>
-                                <input type="text" class="form-control">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <label class="form-label">ที่อยู่</label>
-                                <textarea class="form-control" rows="4"></textarea>
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <label class="form-label">เบอร์โทรศัพท์</label>
-                                <input type="text" class="form-control">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <label class="form-label">Username</label>
-                                <input type="text" class="form-control">
-                            </div>
-                            <a href="./memberList.php" class="btn btn-secondary">ยกลิก</a>
-                            <button type="submit" class="btn btn-primary">บันทึก</button>
-                        </form>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">ชื่อ - นามสกุล</label>
+                                    <input type="text" class="form-control" name="name" value="<?php echo $row['m_name'] ?>" required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">เลขบัตรประจำตัวประชาชน</label>
+                                    <input type="text" class="form-control" name="card_id" value="<?php echo $row['m_card_id'] ?>" required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">ที่อยู่</label>
+                                    <textarea class="form-control" name="address" rows="4"><?php echo $row['address'] ?></textarea>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">เบอร์โทรศัพท์</label>
+                                    <input type="text" class="form-control" name="phone" value="<?php echo $row['phone'] ?>">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">Username</label>
+                                    <input type="text" class="form-control" name="username" value="<?php echo $row['username'] ?>" required>
+                                </div>
+
+                                <a href="./memberList.php" class="btn btn-secondary">ยกลิก</a>
+                                <button type="submit" name="update" class="btn btn-primary">บันทึก</button>
+                            </form>
+                        </div>
                     </div>
-                </div>
 
-            </div>
+                </div>
+            <?php } ?>
         </div>
     </div>
 

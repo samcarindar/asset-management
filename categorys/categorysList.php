@@ -32,7 +32,7 @@ if (!isset($_SESSION['status'])) {
                 <div class="card shadow p-2">
                     <div class="card-body">
                         <h3 class="float-start me-2">ข้อมูลหมวดหมู่หนังสือ</h3>
-                        <a href="./insertcategory.php" class="btn btn-sm btn-primary mb-3">เพิ่ม</a>
+                        <a href="./insertCategory.php" class="btn btn-sm btn-primary mb-3">เพิ่ม</a>
 
                         <div class="col-md-6">
                             <table class="table table-striped text-nowrap" id="myTable">

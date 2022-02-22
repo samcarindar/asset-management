@@ -25,14 +25,18 @@ if (!isset($_SESSION['status'])) {
         <div class="row">
             <?php
             include("../layout/sidebar.php");
-            $result = mysqli_query($conn, "SELECT * FROM book");
+            $result = mysqli_query($conn, "
+            SELECT book.b_id, book.book_id, book.b_name, category.c_id, category.c_name, book.price, book.status
+            FROM book LEFT JOIN category ON book.c_id = category.c_id
+            ORDER BY book.book_id;
+            ");
             ?>
 
             <div class="col-md-10 px-4 my-4">
                 <div class="card shadow p-2">
                     <div class="card-body">
                         <h3 class="float-start me-2">ข้อมูลหนังสือ</h3>
-                        <a href="./insertbook.php" class="btn btn-sm btn-primary mb-3">เพิ่มหนังสือ</a>
+                        <a href="./insertBook.php" class="btn btn-sm btn-primary mb-3">เพิ่มหนังสือ</a>
 
                         <table class="table table-striped text-nowrap" id="myTable">
                             <thead class="table-primary">
@@ -51,17 +55,18 @@ if (!isset($_SESSION['status'])) {
                                 if (mysqli_num_rows($result) > 0) {
                                     $i = 1;
                                     while ($row = mysqli_fetch_array($result)) {
+
                                 ?>
                                         <tr>
                                             <td><?php echo $i++ ?></td>
                                             <td><?php echo $row["book_id"] ?></td>
                                             <td><?php echo $row["b_name"] ?></td>
-                                            <td><?php echo $row["c_id"] ?></td>
+                                            <td><?php echo $row["c_name"] ?></td>
                                             <td><?php echo $row["price"] ?></td>
                                             <td><?php echo $row["status"] ?></td>
                                             <td class="col-2 text-end">
-                                                <a href="./updatebook.php" class="btn btn-sm btn-warning text-white">แก้ไข</a>
-                                                <button type="button" class="btn btn-sm btn-danger">ลบ</button>
+                                                <a href="./updateBook.php?id=<?php echo $row["b_id"]; ?>" class="btn btn-sm btn-warning text-white">แก้ไข</a>
+                                                <a href="./DB_delBook.php?id=<?php echo $row["b_id"]; ?>" class="btn btn-sm btn-danger">ลบ</a>
                                             </td>
                                         </tr>
                                 <?php }
