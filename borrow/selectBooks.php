@@ -29,7 +29,6 @@ if (!isset($_SESSION['status'])) {
             $result = mysqli_query($conn, "
             SELECT book.b_id, book.book_id, book.b_name, category.c_id, category.c_name, book.price, book.status
             FROM book LEFT JOIN category ON book.c_id = category.c_id
-            WHERE book.status='ปกติ/ว่าง'
             ORDER BY book.book_id;
             ");
             ?>
