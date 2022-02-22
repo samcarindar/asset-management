@@ -66,7 +66,10 @@ if (!isset($_SESSION['status'])) {
                                             <td><?php echo $row["price"] ?></td>
                                             <td><?php echo $row["status"] ?></td>
                                             <td class="col-2 text-end">
-                                                <a href="./DB_borrowBook.php?m_id=<?php echo $id; ?>&book_id=<?php echo $row['b_id']; ?>" class="btn btn-sm btn-primary px-4">ยืม</a>
+                                                <?php
+                                                if ($row["status"] == 'ปกติ/ว่าง') { ?>
+                                                    <a href="./DB_borrowBook.php?m_id=<?php echo $id; ?>&book_id=<?php echo $row['b_id']; ?>" class="btn btn-sm btn-primary px-4">ยืม</a>
+                                                <?php } ?>
                                             </td>
                                         </tr>
                                 <?php }
