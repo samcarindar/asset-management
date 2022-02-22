@@ -22,6 +22,12 @@
                 จัดการข้อมูลสมาชิก
             </a>
         </li>
+        <li>
+            <a href="../categorys/categorysList.php" class="nav-link text-white">
+                <i class="fa fa-th-list me-1" style="font-size:18px"></i>
+                จัดการหมวดหมู่หนังสือ
+            </a>
+        </li>
     </ul>
     <hr>
     <div class="dropdown">

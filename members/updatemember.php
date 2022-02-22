@@ -30,7 +30,7 @@ if (!isset($_SESSION['status'])) {
             <div class="col-md-10 px-4 my-4">
                 <div class="card shadow p-2">
                     <div class="card-body">
-                        <h3 class="mb-4">ข้อมูลสมาชิก</h3>
+                        <h3 class="mb-3">ข้อมูลสมาชิก</h3>
 
                         <form action="./memberList.php" method="POST">
                             <div class="col-md-4 mb-3">

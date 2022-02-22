@@ -25,6 +25,7 @@ if (!isset($_SESSION['status'])) {
         <div class="row">
             <?php
             include("../layout/sidebar.php");
+            $result = mysqli_query($conn, "SELECT * FROM book");
             ?>
 
             <div class="col-md-10 px-4 my-4">
@@ -46,18 +47,25 @@ if (!isset($_SESSION['status'])) {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>495568</td>
-                                    <td>หนังสือภาษาไทย</td>
-                                    <td>ภาษาไทย</td>
-                                    <td>250.00</td>
-                                    <td>ปกติ/ว่าง</td>
-                                    <td class="col-2 text-end">
-                                        <a href="./updatebook.php" class="btn btn-sm btn-warning text-white">แก้ไข</a>
-                                        <button type="button" class="btn btn-sm btn-danger">ลบ</button>
-                                    </td>
-                                </tr>
+                                <?php
+                                if (mysqli_num_rows($result) > 0) {
+                                    $i = 1;
+                                    while ($row = mysqli_fetch_array($result)) {
+                                ?>
+                                        <tr>
+                                            <td><?php echo $i++ ?></td>
+                                            <td><?php echo $row["book_id"] ?></td>
+                                            <td><?php echo $row["b_name"] ?></td>
+                                            <td><?php echo $row["c_id"] ?></td>
+                                            <td><?php echo $row["price"] ?></td>
+                                            <td><?php echo $row["status"] ?></td>
+                                            <td class="col-2 text-end">
+                                                <a href="./updatebook.php" class="btn btn-sm btn-warning text-white">แก้ไข</a>
+                                                <button type="button" class="btn btn-sm btn-danger">ลบ</button>
+                                            </td>
+                                        </tr>
+                                <?php }
+                                } ?>
                             </tbody>
                         </table>
                     </div>
