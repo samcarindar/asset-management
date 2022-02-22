@@ -25,12 +25,7 @@ if (!isset($_SESSION['status'])) {
         <div class="row">
             <?php
             include("../layout/sidebar.php");
-            $result = mysqli_query($conn, "
-            SELECT book.b_id, book.book_id, book.b_name, category.c_id, category.c_name, book.price, book.status
-            FROM book LEFT JOIN category ON book.c_id = category.c_id
-            WHERE book.status='ปกติ/ว่าง'
-            ORDER BY book.book_id;
-            ");
+            $result = mysqli_query($conn, "SELECT * FROM member WHERE status='0' ORDER BY m_name");
             ?>
 
             <div class="col-md-10 px-4 my-4">
@@ -42,9 +37,9 @@ if (!isset($_SESSION['status'])) {
                             <thead class="table-primary">
                                 <tr>
                                     <th scope="col">ลำดับ</th>
-                                    <th scope="col">ผู้ยืม</th>
-                                    <th scope="col">กำหนดคืน</th>
-                                    <th scope="col">วันที่คืน</th>
+                                    <th scope="col">เลขบัตรประชาชน</th>
+                                    <th scope="col">ชื่อ - นามสกุล</th>
+                                    <th scope="col">เบอร์โทรศัพท์</th>
                                     <th scope="col">Username</th>
                                     <th scope="col">สถานะ</th>
                                     <th scope="col"></th>

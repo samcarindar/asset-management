@@ -19,7 +19,7 @@
         <li>
             <a href="../returns/returnsList.php" class="nav-link text-white">
                 <i class="fa fa-th-list me-1" style="font-size:18px"></i>
-                รับคืนหนังสือ
+                คืนหนังสือ
             </a>
         </li>
         <li>
