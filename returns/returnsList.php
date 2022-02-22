@@ -45,7 +45,7 @@ if (!isset($_SESSION['status'])) {
                                     <th scope="col">เลขที่หนังสือ</th>
                                     <th scope="col">ชื่อหนังสือ</th>
                                     <th scope="col">วันที่ยืม</th>
-                                    <th scope="col">กำหนดส่ง</th>
+                                    <th scope="col">กำหนดส่งคืน</th>
                                     <th scope="col">สถานะ</th>
                                     <th scope="col"></th>
                                 </tr>

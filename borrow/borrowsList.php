@@ -25,7 +25,7 @@ if (!isset($_SESSION['status'])) {
         <div class="row">
             <?php
             include("../layout/sidebar.php");
-            $result = mysqli_query($conn, "SELECT * FROM member WHERE status='0' ORDER BY m_name");
+            $result = mysqli_query($conn, "SELECT *, (SELECT COUNT(id) FROM booking WHERE m_id = mb.m_id) as c FROM member as mb WHERE status='0' ORDER BY m_name");
             ?>
 
             <div class="col-md-10 px-4 my-4">
@@ -42,6 +42,7 @@ if (!isset($_SESSION['status'])) {
                                     <th scope="col">เบอร์โทรศัพท์</th>
                                     <th scope="col">Username</th>
                                     <th scope="col">สถานะ</th>
+                                    <th scope="col">จำนวนที่ยืม</th>
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
@@ -66,6 +67,7 @@ if (!isset($_SESSION['status'])) {
                                                 }
                                                 ?>
                                             </td>
+                                            <td><?php echo $row["c"] ?></td>
                                             <td class="col-2 text-end">
                                                 <a href="./selectBooks.php?id=<?php echo $row['m_id']; ?>" class="btn btn-sm btn-success text-white">เลือก</a>
                                             </td>

@@ -12,19 +12,19 @@
         </li>
         <li>
             <a href="../borrow/borrowsList.php" class="nav-link text-white">
-                <i class="fa fa-th-list me-1" style="font-size:18px"></i>
+                <i class="fa fa-book me-1" style="font-size:18px"></i>
                 ยืมหนังสือ
             </a>
         </li>
         <li>
             <a href="../returns/returnsList.php" class="nav-link text-white">
-                <i class="fa fa-th-list me-1" style="font-size:18px"></i>
+                <i class="fa fa-address-book me-1" style="font-size:18px"></i>
                 ส่งคืนหนังสือ
             </a>
         </li>
         <li>
             <a href="../books/booksList.php" class="nav-link text-white">
-                <i class="fa fa-th-list me-1" style="font-size:18px"></i>
+                <i class="fa fa-pencil-square me-1" style="font-size:18px"></i>
                 จัดการข้อมูลหนังสือ
             </a>
         </li>
