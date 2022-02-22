@@ -10,13 +10,16 @@ $b_id = $_GET['book_id'];
 $date = date('Y-m-d', strtotime("+4 day"));
 
 $result = mysqli_query($conn, "SELECT * FROM book WHERE b_id='$b_id'");
-while ($row = mysqli_fetch_array($result)) {
-    $strSQL = "INSERT INTO booking (book_id, c_id, end_date, price, m_id) 
-                    VALUES ('" . $row['book_id'] . "','" . $row['c_id'] . "','$date','" . $row['price'] . "','$m_id')";
+if ($row = mysqli_fetch_array($result)) {
+  $book_id = $row['book_id'];
+  $c_id = $row['c_id'];
+  $price = $row['price'];
 
-    if ($conn->query($strSQL) == TRUE) {
-    } else {
-        echo "<script>
+  $strSQL = "INSERT INTO booking (book_id, c_id, end_date, price, m_id, status) 
+                  VALUES ('$book_id','$c_id','$date','$price','$m_id','0')";
+
+  if ($conn->query($strSQL) !== TRUE) {
+    echo "<script>
         $(document).ready(function() {
           Swal.fire({
             position: 'center',
@@ -29,13 +32,13 @@ while ($row = mysqli_fetch_array($result)) {
           });
         });
         </script>";
-    }
+  }
 }
 
 $sql = " UPDATE book SET status='ยืม/ใช้งาน' WHERE b_id='$b_id'";
 
 if ($conn->query($sql) == TRUE) {
-    echo "<script>
+  echo "<script>
     $(document).ready(function() {
     Swal.fire({
             position: 'center',
@@ -49,7 +52,7 @@ if ($conn->query($sql) == TRUE) {
         });
     </script>";
 } else {
-    echo "<script>
+  echo "<script>
     $(document).ready(function() {
       Swal.fire({
         position: 'center',
